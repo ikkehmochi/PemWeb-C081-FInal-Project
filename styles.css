@@ -1,0 +1,88 @@
+.container {
+    margin: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.table-content {
+    position: relative;
+    margin: 30px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px black;
+}
+.table-capacity, .table-status{
+    font-size: 18px;
+    color: white;
+}
+.table-num{
+    font-size: 36px;
+    color: white;
+    position: absolute;
+    width: 98%;
+    height: 40%;
+    top: 0;
+    left: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.table-capacity{
+    padding: 0 1% 1% 1%;
+}
+.table-capacity-AVAILABLE{
+    background-color: #61C2F9;;
+}
+.table-capacity-OCCUPIED{
+    background-color: #F96161;
+}
+.table-capacity-RESERVED{
+    background-color: #F9D761;
+}
+.table-status{
+    border-radius: 0 0 5px 5px;
+    padding: 1% 0;
+}
+.table-status-AVAILABLE{
+    background-color: #04BE38;
+}
+.table-status-OCCUPIED{
+    background-color: #BE0404;
+}
+.table-status-RESERVED{
+    background-color: #C87F11;
+}
+.table-image{
+    height: 166px
+}
+.table-image img {
+    margin: 0;
+    border-radius: 5px 5px 0 0;
+}
+
+.table-btn{
+    position: absolute;
+    width: 98%;
+    height: 97%;
+    top: 0;
+    left: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: .6s;
+}
+
+.table-btn:hover {
+    backdrop-filter: blur(2px);
+    opacity: 1;
+}
