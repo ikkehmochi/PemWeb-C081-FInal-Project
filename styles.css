@@ -1,10 +1,18 @@
+body{
+    background-color: #03254c;
+}
+.home-anchor{
+    text-decoration: none;
+    width: auto;
+    margin: auto;
+
+}
 .container {
     margin: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    /* background-color: red; */
 }
 
 .table-content {
@@ -18,7 +26,7 @@
     border-radius: 5px;
     box-shadow: 3px 3px 10px black;
 }
-.table-capacity, .table-status{
+.table-capacity, .table-status, .reserve_details, .home-anchor{
     font-size: 18px;
     color: white;
 }
@@ -59,6 +67,7 @@
 }
 .table-status-RESERVED{
     background-color: #C87F11;
+    border-radius: 0;
 }
 .table-image{
     height: 166px
@@ -66,6 +75,9 @@
 .table-image img {
     margin: 0;
     border-radius: 5px 5px 0 0;
+}
+.bzr{
+    border-radius: 0;
 }
 
 .table-btn{
@@ -85,4 +97,9 @@
 .table-btn:hover {
     backdrop-filter: blur(2px);
     opacity: 1;
+}
+.reserve_details{
+    font-family: 'Open Sans', sans-serif;
+    background-color: #ff781f;
+    border-radius:  0 0 5px 5px;
 }

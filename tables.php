@@ -41,6 +41,20 @@ function check_reserve_time($table_id){
 }
 
   /**
+  * get the reservation detail (reserver name and reserve id) of targeted table
+  * 
+  *
+  * @param    int  $table_id
+  * @return   array
+  *
+  */
+function get_reserve_detail($table_id){
+  date_default_timezone_set("Asia/Bangkok");
+  $query="SELECT id_booking, nama_dipesan FROM booking LEFT JOIN meja ON booking.no_meja_fk = meja.no_meja WHERE booking.no_meja_fk=$table_id;";
+  $reserve_details=$GLOBALS['conn']->query($query)->fetch();
+  return $reserve_details;
+}
+  /**
   * get the reservation time of targeted table
   * 
   *
@@ -48,14 +62,14 @@ function check_reserve_time($table_id){
   * @return   string
   *
   */
-function get_reserve_time($table_id){
-  date_default_timezone_set("Asia/Bangkok");
-  $query="SELECT waktu FROM booking LEFT JOIN meja ON booking.no_meja_fk = meja.no_meja WHERE booking.no_meja_fk=$table_id;";
-  $reserve_exec=$GLOBALS['conn']->query($query)->fetchColumn();
-  $todays_date=explode(" ", $reserve_exec);
-  return $todays_date[1];
-}
-?>
+  function get_reserve_time($table_id){
+    date_default_timezone_set("Asia/Bangkok");
+    $query="SELECT waktu FROM booking LEFT JOIN meja ON booking.no_meja_fk = meja.no_meja WHERE booking.no_meja_fk=$table_id;";
+    $reserve_exec=$GLOBALS['conn']->query($query)->fetchColumn();
+    $todays_date=explode(" ", $reserve_exec);
+    return $todays_date[1];
+  }
+  ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -70,6 +84,12 @@ function get_reserve_time($table_id){
     
   </head>
   <body>
+  <a href="#" class="home-anchor"><table>
+        <tr>
+            <td><img src="Data\Images\menu.png" alt="back to main menu"></td>
+            <td>Back To Main Menu</td>
+        </tr>
+    </table></a>
     <?php
     echo "<div class='container'>";
     while($table = $select_exec->fetch(PDO::FETCH_ASSOC)){
@@ -93,14 +113,14 @@ function get_reserve_time($table_id){
             $btn_url="done_dining.php";
         }elseif($table["status_meja"]==2){
             $reserved_time=get_reserve_time($table["no_meja"]);
-            $status_meja="RESERVED";
+            $status_meja="RESERVED bzr";
             $table_info="RESERVED AT $reserved_time";
             $img_url="Data\Images\meja_reserved.png";
             $btn_img="Data\Images\Dine.png";
             $btn_alt="Dine In";
             $btn_url="dine_reservation.php";
         }else{
-          $status_meja="OCCUPIED";
+          $status_meja="OCCUPIED bzr";
           $table_info="OCCUPIED";
           $img_url="Data\Images\meja_occupied.png";
           $btn_img="Data\Images\Done.png";
@@ -122,9 +142,19 @@ function get_reserve_time($table_id){
             </div>
             <div class='table-btn'>
               <a href=$btn_url?table_id=$table[no_meja]><img src=$btn_img alt=$btn_alt /></a>
-            </div>
-          </div>";
+            </div>";
+            if($table["status_meja"]==2 || $table["status_meja"]==3){
+              $reserve_detail=get_reserve_detail($table["no_meja"]);
+              echo 
+              "<div class='reserve_details'>
+              $reserve_detail[0]. $reserve_detail[1]
+              </div>";
+            }
+            
+          echo"</div>";
+          
     }echo "</div>";
     ?>      
+    <h4></h4>
   </body>
 </html>
