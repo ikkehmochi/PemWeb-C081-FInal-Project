@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2023 at 11:00 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Jun 09, 2023 at 05:29 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,8 +32,10 @@ CREATE TABLE `booking` (
   `no_meja_fk` int(2) NOT NULL,
   `nama_dipesan` varchar(50) NOT NULL,
   `kursi_dipesan` int(2) NOT NULL,
-  `waktu` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `waktu` datetime NOT NULL,
+  `no_telpon` varchar(14) NOT NULL,
+  `catatan` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -46,7 +48,7 @@ CREATE TABLE `meja` (
   `jumlah_kursi` int(2) NOT NULL,
   `status_meja` varchar(25) NOT NULL,
   `lantai` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `meja`
@@ -64,7 +66,19 @@ INSERT INTO `meja` (`no_meja`, `jumlah_kursi`, `status_meja`, `lantai`) VALUES
 (9, 4, '0', 0),
 (10, 4, '0', 0),
 (11, 4, '0', 0),
-(12, 4, '0', 0);
+(12, 4, '0', 0),
+(13, 4, '0', 1),
+(14, 4, '0', 1),
+(15, 4, '0', 1),
+(16, 4, '0', 1),
+(17, 4, '0', 1),
+(18, 4, '0', 1),
+(19, 4, '0', 1),
+(20, 4, '0', 1),
+(21, 4, '0', 1),
+(22, 4, '0', 1),
+(23, 4, '0', 1),
+(24, 4, '0', 1);
 
 --
 -- Indexes for dumped tables
