@@ -1,6 +1,7 @@
 <?php
 include_once("conn.php");
-$select_query="SELECT * FROM meja";
+$targeted_floor = $_GET["lantai"];
+$select_query="SELECT * FROM meja WHERE lantai=$targeted_floor";
 $select_exec=$conn->query($select_query);
 
   /**
@@ -69,6 +70,22 @@ function get_reserve_detail($table_id){
     $todays_date=explode(" ", $reserve_exec);
     return $todays_date[1];
   }
+  /**
+  * get the total floor of the database
+  * 
+  *
+  * @return   array
+  *
+  */
+  function get_floor(){
+    $query="SELECT DISTINCT lantai from meja;";
+    $floor_exec=$GLOBALS['conn']->query($query)->fetchAll();
+    $floors=array();
+    foreach($floor_exec as $floor){
+        array_push($floors, $floor["lantai"]);
+    }
+    return $floors;
+  }
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,12 +96,12 @@ function get_reserve_detail($table_id){
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css" />
-    <title>Document</title>
+<link rel="stylesheet" href="viewtables.css" />
+    <title>Daftar Meja</title>
     
   </head>
   <body>
-  <a href="#" class="home-anchor"><table>
+  <a href="index.php" class="home-anchor"><table>
         <tr>
             <td><img src="Data\Images\menu.png" alt="back to main menu"></td>
             <td>Back To Main Menu</td>
@@ -155,6 +172,17 @@ function get_reserve_detail($table_id){
           
     }echo "</div>";
     ?>      
-    <h4></h4>
+    <div class="floor-select">
+      <?php
+        $total_lantai=get_floor();
+        foreach( $total_lantai as $lantai){
+          echo      "<div class=floor_button_div>
+          <a class=floor_button href=tables.php?lantai=$lantai>$lantai</a>
+    
+        </div>";
+        }
+      ?>
+    </div>
+
   </body>
 </html>

@@ -1,0 +1,124 @@
+a{
+    text-decoration: none;
+}
+
+.home-anchor{
+    text-decoration: none;
+    width: auto;
+    margin: auto;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+}
+.container {
+    margin: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-content,.floor-select{
+    position: relative;
+    margin: 30px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px black;
+}
+.table-capacity, .table-status, .reserve_details{
+    font-size: 18px;
+    color: white;
+}
+.table-num{
+    font-size: 36px;
+    color: white;
+    position: absolute;
+    width: 98%;
+    height: 40%;
+    top: 0;
+    left: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.table-capacity{
+    padding: 0 1% 1% 1%;
+}
+.table-capacity-AVAILABLE{
+    background-color: #61C2F9;;
+}
+.table-capacity-OCCUPIED{
+    background-color: #F96161;
+}
+.table-capacity-RESERVED{
+    background-color: #F9D761;
+}
+.table-status{
+    border-radius: 0 0 5px 5px;
+    padding: 1% 0;
+}
+.table-status-AVAILABLE{
+    background-color: #04BE38;
+}
+.table-status-OCCUPIED{
+    background-color: #BE0404;
+}
+.table-status-RESERVED{
+    background-color: #C87F11;
+    border-radius: 0;
+}
+.table-image{
+    height: 166px
+}
+.table-image img {
+    margin: 0;
+    border-radius: 5px 5px 0 0;
+}
+.bzr{
+    border-radius: 0;
+}
+
+.table-btn{
+    position: absolute;
+    width: 98%;
+    height: 97%;
+    top: 0;
+    left: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: .6s;
+}
+
+.table-btn:hover {
+    backdrop-filter: blur(2px);
+    opacity: 1;
+}
+.reserve_details{
+    font-family: 'Open Sans', sans-serif;
+    background-color: #ff781f;
+    border-radius:  0 0 5px 5px;
+}
+.floor-select{
+    font-size: 36px;
+    color: #ffff;
+    text-decoration: none;
+}
+.floor_button_div{
+    height: 125%;
+    width: auto;
+    border-radius: 5px;
+    background-color: black;
+    box-shadow: 3px 3px 10px black;
+
+}
+.floor-button a:visited{
+    color:#ffff;
+}
