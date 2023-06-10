@@ -43,7 +43,7 @@
         <div class="row px-5">
             <div class="col-lg-4">
                 <div class="card">
-                    <a href="tables.php?lantai=0">
+                    <a href="tables.php?lantai=1">
                         <div class="card-body text-center">
                             <img src="Data\Images\chair-solid.svg" class="icon" style="height:47px;" alt="">
                             <h5 class="card-title mt-3">Table Information</h5>
@@ -54,27 +54,16 @@
             </div>
             <div class="col-lg-4">
                 <div class="card">
-                    <a href="">
+                    <a href="Tampilan_Booking.php">
                         <div class="card-body text-center">
                             <img src="Data\Images\book-open-solid.svg" class="icon" style="height:47px;" alt="">
 
                             <h5 class="card-title mt-3">Book Information</h5>
                         </div>
                     </a>
-
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <a href="">
-                        <div class="card-body text-center">
-                            <i class="fa fa-cart-plus fa-3x" aria-hidden="true"></i>
-                            <h5 class="card-title mt-3">Book Information</h5>
-                        </div>
-                    </a>
 
-                </div>
-            </div>
         </div>
     </div>
 

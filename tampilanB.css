@@ -1,0 +1,149 @@
+
+body {
+    background-color: #BCE6F3;
+    width: auto;
+    height: auto;
+    align-items: center;
+    align-content: center;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+h3 {
+    position: relative;
+    width: 254px;
+    height: 44px;
+    left: 450px;
+    top: -20px;
+    font-weight: bolder;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 44px;
+    color: white;
+    text-align: center;
+}
+.judul{
+    position: absolute;
+    width: 1160px;
+    height: 50px;
+    left: 140px;
+    top: 129px;
+    background: #26A5DB;
+    border-radius: 40px;
+}
+
+.table2 {
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 1150px;
+    position: relative;
+    left: 120px;
+    top: 200px;
+  }
+
+table {
+    width: 1200px;
+    height: 50px;
+    right: 10px;
+  }
+
+ 
+.table2 tr th{
+    background: #26A5DB;
+    color: #fff;
+    font-weight: normal;
+}
+ 
+.table2, th, td {
+    padding: 8px 20px;
+    text-align: center;
+}
+
+.table2 td {
+    background-color: aliceblue;
+}
+ 
+.table2 tr:hover {
+    background-color: #f5f5f5;
+}
+ 
+.table2 tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+  
+/* top-left border-radius */
+.table2 tr:first-child th:first-child {
+    border-top-left-radius: 15px;
+}
+  
+/* top-right border-radius */
+.table2 tr:first-child th:last-child {
+    border-top-right-radius: 15px;
+}
+  
+/* bottom-left border-radius */
+.table2 tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+}
+
+/* bottom-right border-radius */
+.table2 tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+  }
+ 
+.button{
+  padding: 12px 24px;
+  color: white;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 15px;
+  background-color: limegreen;
+  border: #fff;
+  cursor: pointer;
+  position:relative;
+  left: 1140px;
+  top: 190px;
+  text-decoration: none;
+}
+
+.button1{
+    color :black;
+    text-decoration: black;
+    font-size: 22px;
+    font-weight: bold;
+    position: relative;
+    right: 140px; 
+}
+
+.delete-link {
+  padding: 6px 12px;
+  color: white;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 15px;
+  background-color: red;
+  border: #fff;
+  text-decoration: none;
+}
+
+.edit-link {
+  padding: 6px 12px;
+  color: white;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 15px;
+  background-color: limegreen;
+  border: #fff;
+  text-decoration: none;
+}
+.home-anchor{
+    text-decoration: none;
+    margin: auto;
+    font-size: 18px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+
+}
+.home-anchor table{
+    width: auto;
+}

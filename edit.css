@@ -1,0 +1,59 @@
+input[type=text] {
+    padding:6px;
+    border:1px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius:10px;
+}
+input[type=datetime-local] {
+    padding:6px;
+    border:1px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius:10px;
+}
+input[type=submit] {
+    padding:6px;
+    border:1px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius:10px;
+    background-color:lime;
+}
+input[type=text] {
+    padding:6px;
+    border:1px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius:10px;
+}
+
+body {
+    background-color: #BCE6F3;
+    position: absolute;
+}
+
+.edit {
+    padding: 10px;
+    background-color:gold;
+    border: 20px;
+    border-color: white;
+    border-radius: 10px;
+    position: relative;
+    left:550px;
+    top :120px;
+}
+
+h2{
+    color: white;
+    font-size: 24px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+label {
+    color: white;
+    font-size: 12px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align:left;
+}
+
+table{
+    text-align: left;
+}

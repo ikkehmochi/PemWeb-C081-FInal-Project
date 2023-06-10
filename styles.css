@@ -29,6 +29,8 @@ body{
 .table-capacity, .table-status, .reserve_details, .home-anchor{
     font-size: 18px;
     color: white;
+    font-family: 'Open Sans', sans-serif;
+
 }
 .table-num{
     font-size: 36px;

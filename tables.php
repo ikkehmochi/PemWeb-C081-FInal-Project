@@ -89,26 +89,30 @@ function get_reserve_detail($table_id){
   ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="viewtables.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="viewtables.css" />
     <title>Daftar Meja</title>
-    
-  </head>
-  <body>
-  <a href="index.php" class="home-anchor"><table>
-        <tr>
-            <td><img src="Data\Images\menu.png" alt="back to main menu"></td>
-            <td>Back To Main Menu</td>
-        </tr>
-    </table></a>
-    <?php
-    echo "<div class='container'>";
+
+</head>
+
+<body>
+    <a href="index.php" class="home-anchor">
+        <table>
+            <tr>
+                <td><img src="Data\Images\menu.png" alt="back to main menu"></td>
+                <td>Back To Main Menu</td>
+            </tr>
+        </table>
+    </a>
+    <div class='container'>
+        <?php
     while($table = $select_exec->fetch(PDO::FETCH_ASSOC)){
       $table_info="";
       if((check_reserve($table["no_meja"]))&&(check_reserve_time($table["no_meja"])==0) && ($table["status_meja"]==0)){
@@ -168,12 +172,11 @@ function get_reserve_detail($table_id){
               </div>";
             }
             
-          echo"</div>";
+          echo"</div>";}
           
-    }echo "</div>";
-    ?>      
-    <div class="floor-select">
-      <?php
+          ?>
+        <div class="floor-select">
+            <?php
         $total_lantai=get_floor();
         foreach( $total_lantai as $lantai){
           echo      "<div class=floor_button_div>
@@ -182,7 +185,10 @@ function get_reserve_detail($table_id){
         </div>";
         }
       ?>
+        </div>
     </div>
 
-  </body>
+
+</body>
+
 </html>
