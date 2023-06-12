@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2023 at 05:29 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jun 12, 2023 at 04:09 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,11 +29,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `booking` (
   `id_booking` int(5) NOT NULL,
-  `no_meja_fk` int(2) NOT NULL,
   `nama_dipesan` varchar(50) NOT NULL,
-  `kursi_dipesan` int(2) NOT NULL,
-  `waktu` datetime NOT NULL,
+  `email` varchar(50) NOT NULL,
   `no_telpon` varchar(14) NOT NULL,
+  `waktu` datetime NOT NULL,
+  `kursi_dipesan` int(2) NOT NULL,
+  `no_meja_fk` int(2) NOT NULL,
   `catatan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -55,30 +56,30 @@ CREATE TABLE `meja` (
 --
 
 INSERT INTO `meja` (`no_meja`, `jumlah_kursi`, `status_meja`, `lantai`) VALUES
-(1, 4, '0', 0),
-(2, 4, '0', 0),
-(3, 4, '0', 0),
-(4, 4, '0', 0),
-(5, 2, '0', 0),
-(6, 2, '0', 0),
-(7, 2, '0', 0),
-(8, 2, '0', 0),
-(9, 4, '0', 0),
-(10, 4, '0', 0),
-(11, 4, '0', 0),
-(12, 4, '0', 0),
-(13, 4, '0', 1),
-(14, 4, '0', 1),
-(15, 4, '0', 1),
-(16, 4, '0', 1),
-(17, 4, '0', 1),
-(18, 4, '0', 1),
-(19, 4, '0', 1),
-(20, 4, '0', 1),
-(21, 4, '0', 1),
-(22, 4, '0', 1),
-(23, 4, '0', 1),
-(24, 4, '0', 1);
+(1, 4, '0', 1),
+(2, 4, '0', 1),
+(3, 4, '0', 1),
+(4, 4, '0', 1),
+(5, 2, '0', 1),
+(6, 2, '0', 1),
+(7, 2, '0', 1),
+(8, 2, '0', 1),
+(9, 4, '0', 1),
+(10, 4, '0', 1),
+(11, 4, '0', 1),
+(12, 4, '0', 1),
+(13, 4, '0', 2),
+(14, 4, '0', 2),
+(15, 4, '0', 2),
+(16, 4, '0', 2),
+(17, 4, '0', 2),
+(18, 4, '0', 2),
+(19, 4, '0', 2),
+(20, 6, '0', 2),
+(21, 6, '0', 2),
+(22, 6, '0', 2),
+(23, 6, '0', 2),
+(24, 6, '0', 2);
 
 --
 -- Indexes for dumped tables
@@ -96,6 +97,16 @@ ALTER TABLE `booking`
 --
 ALTER TABLE `meja`
   ADD PRIMARY KEY (`no_meja`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `id_booking` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
