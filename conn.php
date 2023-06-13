@@ -1,8 +1,8 @@
 <?php
   $dbServer = 'localhost';
-  $dbUser = 'root';
-  $dbPass = '';
-  $dbName = "final_project";
+  $dbUser = 'id20904810_admin';
+  $dbPass = 'Admin123!';
+  $dbName = "id20904810_final_project";
 
   try {
      //membuat object PDO untuk koneksi ke database

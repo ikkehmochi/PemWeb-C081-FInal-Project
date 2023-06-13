@@ -1,10 +1,9 @@
 <?php
 // Koneksi ke database
 $servername = "localhost";
-$username = "root";
-$password = "";
-$database = "final_project";
-
+$username = "id20904810_admin";
+$password = "Admin123!";
+$database = "id20904810_final_project";
 $conn = new mysqli($servername, $username, $password, $database);
 
 // Periksa koneksi

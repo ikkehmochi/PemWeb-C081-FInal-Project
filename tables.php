@@ -91,12 +91,15 @@ function get_reserve_detail($table_id){
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="viewtable.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="viewtables.css" />
     <title>Daftar Meja</title>
+
 </head>
 
 <body>
@@ -106,71 +109,71 @@ function get_reserve_detail($table_id){
         </span>
         <span class="button-text">Back</span>
     </button>
-    <div class="container">
-        <div class="table-row">
+    <div class='container'>
+        <div class="content">
             <?php
-        while ($table = $select_exec->fetch(PDO::FETCH_ASSOC)) {
-            $table_info = "";
-            if ((check_reserve($table["no_meja"])) && (check_reserve_time($table["no_meja"]) == 0) && ($table["status_meja"] == 0)) {
-                header("location:reserve.php?table_id=$table[no_meja]");
-            }
-            if ($table["status_meja"] == 0) {
-                $status_meja = "AVAILABLE";
-                $table_info = "AVAILABLE";
-                $img_url = "Data\Images\meja_available.png";
-                $btn_img = "Data\Images\Dine.png";
-                $btn_alt = "Dine In";
-                $btn_url = "dinein.php";
-            } elseif ($table["status_meja"] == 1) {
-                $status_meja = "OCCUPIED";
-                $table_info = "OCCUPIED";
-                $img_url = "Data\Images\meja_occupied.png";
-                $btn_img = "Data\Images\done.png";
-                $btn_alt = "Done";
-                $btn_url = "done_dining.php";
-            } elseif ($table["status_meja"] == 2) {
-                $reserved_time = get_reserve_time($table["no_meja"]);
-                $status_meja = "RESERVED bzr";
-                $table_info = "RESERVED AT $reserved_time";
-                $img_url = "Data\Images\meja_reserved.png";
-                $btn_img = "Data\Images\Dine.png";
-                $btn_alt = "Dine In";
-                $btn_url = "dine_reservation.php";
-            } else {
-                $status_meja = "OCCUPIED bzr";
-                $table_info = "OCCUPIED";
-                $img_url = "Data\Images\meja_occupied.png";
-                $btn_img = "Data\Images\Done.png";
-                $btn_alt = "Done";
-                $btn_url = "done_reservation.php";
-            }
-        ?>
-            <div class="table-content card mb-3">
-                <div class="table-num"><?php echo $table["no_meja"]; ?></div>
-                <img src="<?php echo $img_url; ?>" alt="meja_<?php echo $status_meja; ?>" class="card-img-top" />
-                <div class="card-body">
-                    <div class="table-capacity table-capacity-<?php echo $status_meja; ?>">NUMBER OF SEATS:
-                        <?php echo $table["jumlah_kursi"]; ?></div>
-                    <div class="table-status table-status-<?php echo $status_meja; ?>">
-                        <?php echo $table_info; ?>
-                    </div>
-                    <a href="<?php echo $btn_url; ?>?table_id=<?php echo $table["no_meja"]; ?>"
-                        class="btn btn-primary"><?php echo $btn_alt; ?></a>
-                    <?php
-                if ($table["status_meja"] == 2 || $table["status_meja"] == 3) {
-                    $reserve_detail = get_reserve_detail($table["no_meja"]);
-                ?>
-                    <div class="reserve_details">
-                        <?php echo $reserve_detail[0] . ". " . $reserve_detail[1]; ?>
-                    </div>
-                    <?php
-                }
-            ?>
-                </div>
-            </div>
-            <?php
+    while($table = $select_exec->fetch(PDO::FETCH_ASSOC)){
+      $table_info="";
+      if((check_reserve($table["no_meja"]))&&(check_reserve_time($table["no_meja"])==0) && ($table["status_meja"]==0)){
+        header("location:reserve.php?table_id=$table[no_meja]");
+    }
+        if($table["status_meja"]==0){
+            $status_meja="AVAILABLE";
+            $table_info="AVAILABLE";
+            $img_url="Data\Images\meja_available.png";
+            $btn_img="Data\Images\Dine.png";
+            $btn_alt="Dine In";
+            $btn_url="dinein.php";
+        }elseif($table["status_meja"]==1){
+            $status_meja="OCCUPIED";
+            $table_info="OCCUPIED";
+            $img_url="Data\Images\meja_occupied.png";
+            $btn_img="Data\Images\done.png";
+            $btn_alt="Done";
+            $btn_url="done_dining.php";
+        }elseif($table["status_meja"]==2){
+            $reserved_time=get_reserve_time($table["no_meja"]);
+            $status_meja="RESERVED bzr";
+            $table_info="RESERVED AT $reserved_time";
+            $img_url="Data\Images\meja_reserved.png";
+            $btn_img="Data\Images\Dine.png";
+            $btn_alt="Dine In";
+            $btn_url="dine_reservation.php";
+        }else{
+          $status_meja="OCCUPIED bzr";
+          $table_info="OCCUPIED";
+          $img_url="Data\Images\meja_occupied.png";
+          $btn_img="Data\Images\done.png";
+          $btn_alt="Done";
+          $btn_url="done_reservation.php";
         }
-    ?>
+        echo "
+        <div class='table-content'>
+          <div class='table-num'>$table[no_meja]</div>
+          <div class='table-image'>
+            <img
+            src=$img_url
+            alt='meja_$status_meja'
+            class='table-img'
+          /></div>
+            <div class='table-capacity table-capacity-$status_meja'>NUMBER OF SEATS : $table[jumlah_kursi]</div>
+            <div class='table-status table-status-$status_meja'>
+            $table_info
+            </div>
+            <div class='table-btn'>
+              <a href=$btn_url?table_id=$table[no_meja]><img src=$btn_img alt=$btn_alt /></a>
+            </div>";
+            if($table["status_meja"]==2 || $table["status_meja"]==3){
+              $reserve_detail=get_reserve_detail($table["no_meja"]);
+              echo 
+              "<div class='reserve_details'>
+              $reserve_detail[0]. $reserve_detail[1]
+              </div>";
+            }
+            
+          echo"</div>";}
+          
+          ?>
         </div>
     </div>
     <div class="pagination">
@@ -194,7 +197,6 @@ function get_reserve_detail($table_id){
     </div>
 
 </body>
-
 <script>
 const pagination = document.querySelector('.pagination')
 
@@ -284,6 +286,5 @@ if (pagination) {
     positionIndicator(paginationActiveNumber)
 }
 </script>
-
 
 </html>
